@@ -46,7 +46,7 @@
       "area": "Cardboard Sheets",
       "workers": 10,
       "amount": 14200.0,
-      "status": "Pending"
+      "status": "Paid"
     },
     {
       "id": "c7",
@@ -54,7 +54,7 @@
       "area": "Labours",
       "workers": 25,
       "amount": 25000.0,
-      "status": "Pending"
+      "status": "Paid"
     }
   ],
   "workers": [
