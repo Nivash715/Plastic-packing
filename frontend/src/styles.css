@@ -1,0 +1,201 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.875rem;
+
+  /* ── BrushPack 2.0 — teal-green + amber on light slate ── */
+
+  /* App background: clean light slate-blue */
+  --background: #f0f4f8;
+  --foreground: #1a202c;
+
+  /* Cards: pure white */
+  --card: #ffffff;
+  --card-foreground: #1a202c;
+  --popover: #ffffff;
+  --popover-foreground: #1a202c;
+
+  /* Primary: rich teal */
+  --primary: #0d7377;
+  --primary-foreground: #ffffff;
+
+  /* Secondary: soft slate */
+  --secondary: #e8edf3;
+  --secondary-foreground: #2d3748;
+
+  /* Muted */
+  --muted: #edf2f7;
+  --muted-foreground: #718096;
+
+  /* Accent: warm amber */
+  --accent: #d97706;
+  --accent-foreground: #ffffff;
+
+  --destructive: #e53e3e;
+  --destructive-foreground: #ffffff;
+
+  --border: #cbd5e0;
+  --input: #cbd5e0;
+  --ring: #0d7377;
+
+  --chart-1: #0d7377;
+  --chart-2: #d97706;
+  --chart-3: #3182ce;
+  --chart-4: #38a169;
+  --chart-5: #805ad5;
+
+  /* Sidebar: dark slate */
+  --sidebar: #1a202c;
+  --sidebar-foreground: #e2e8f0;
+  --sidebar-primary: #14b8a6;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #2d3748;
+  --sidebar-accent-foreground: #e2e8f0;
+  --sidebar-border: #2d3748;
+  --sidebar-ring: #14b8a6;
+
+  /* Login page: single solid deep navy */
+  --login-bg: #0f2027;
+
+  /* Gradients & shadows */
+  --gradient-hero:   linear-gradient(135deg, #0d7377 0%, #14b8a6 100%);
+  --gradient-warm:   linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+  --gradient-soft:   #f0f4f8;
+  --shadow-soft:     0 4px 20px -6px rgba(13,115,119,0.20);
+  --shadow-elegant:  0 20px 50px -16px rgba(13,115,119,0.30);
+}
+
+.dark {
+  --background: #0f172a;
+  --foreground: #f1f5f9;
+  --card: #1e293b;
+  --card-foreground: #f1f5f9;
+  --popover: #1e293b;
+  --popover-foreground: #f1f5f9;
+  --primary: #14b8a6;
+  --primary-foreground: #0f172a;
+  --secondary: #334155;
+  --secondary-foreground: #f1f5f9;
+  --muted: #334155;
+  --muted-foreground: #94a3b8;
+  --accent: #f59e0b;
+  --accent-foreground: #0f172a;
+  --border: rgba(255,255,255,0.1);
+  --input: rgba(255,255,255,0.12);
+  --ring: #14b8a6;
+  --sidebar: #0f172a;
+  --sidebar-foreground: #f1f5f9;
+  --sidebar-primary: #14b8a6;
+  --sidebar-primary-foreground: #0f172a;
+  --sidebar-accent: #1e293b;
+  --sidebar-accent-foreground: #f1f5f9;
+  --sidebar-border: rgba(255,255,255,0.08);
+  --sidebar-ring: #14b8a6;
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html, body { font-family: var(--font-sans); }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+  /* ── Solid teal cursor in every input / textarea / select ── */
+  input, textarea, select {
+    caret-color: #0d7377;
+  }
+  h1, h2, h3, .font-display { font-family: var(--font-display); letter-spacing: -0.02em; }
+}
+
+@layer utilities {
+  .bg-hero { background: var(--gradient-hero); }
+  .bg-warm { background: var(--gradient-warm); }
+  /* login page — single solid deep navy, no gradients */
+  .bg-soft { background-color: var(--login-bg); }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-elegant { box-shadow: var(--shadow-elegant); }
+
+  /* Animations */
+  @keyframes fade-in { from { opacity: 0; transform: translateY(8px);} to { opacity:1; transform: translateY(0);} }
+  @keyframes scale-in { from { opacity: 0; transform: scale(0.96);} to { opacity:1; transform: scale(1);} }
+  @keyframes float { 0%,100% { transform: translateY(0);} 50% { transform: translateY(-6px);} }
+  @keyframes blob {
+    0%,100% { transform: translate(0,0) scale(1);}
+    33% { transform: translate(30px,-20px) scale(1.1);}
+    66% { transform: translate(-20px,25px) scale(0.95);}
+  }
+  @keyframes shimmer { 0% { background-position: -200% 0;} 100% { background-position: 200% 0;} }
+  @keyframes slide-in-left { from { opacity:0; transform: translateX(-12px);} to { opacity:1; transform: translateX(0);} }
+  @keyframes spin-slow { to { transform: rotate(360deg); } }
+
+  .animate-fade-in { animation: fade-in 0.5s ease-out both; }
+  .animate-scale-in { animation: scale-in 0.4s ease-out both; }
+  .animate-float { animation: float 4s ease-in-out infinite; }
+  .animate-blob { animation: blob 14s ease-in-out infinite; }
+  .animate-slide-in-left { animation: slide-in-left .35s ease-out both; }
+  .animate-spin-slow { animation: spin-slow 18s linear infinite; }
+
+  .hover-scale { transition: transform .2s ease; }
+  .hover-scale:hover { transform: translateY(-2px) scale(1.01); }
+
+  .hover-lift { transition: transform .25s ease, box-shadow .25s ease; }
+  .hover-lift:hover { transform: translateY(-3px); box-shadow: var(--shadow-elegant); }
+
+  .glass { background: color-mix(in oklab, var(--card) 70%, transparent); backdrop-filter: blur(12px); }
+
+  .shimmer-text {
+    background: linear-gradient(90deg, currentColor 0%, color-mix(in oklab, currentColor 60%, white) 50%, currentColor 100%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer 3.5s linear infinite;
+  }
+}
